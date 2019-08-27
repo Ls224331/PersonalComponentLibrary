@@ -1,0 +1,124 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.music-all {
+	width: 500px;
+	height: 500px;
+	border: 1px solid red;
+	margin: 30px auto 0;
+	position: relative;
+}
+
+
+/* 进度条 */
+
+.music-range {
+	width: 350px;
+	height: 2px;
+	background: #2386e4;
+	border-radius: 5px;
+	-webkit-appearance: none;
+	margin: 0 auto;
+	cursor: pointer;
+}
+
+
+/* 进度滑块 */
+
+.music-range::-webkit-slider-thumb {
+	width: 15px;
+	height: 15px;
+	background: #fff;
+	border: 1px solid #f18900;
+	cursor: pointer;
+	border-radius: 50%;
+	-webkit-appearance: none;
+}
+
+
+/*转动*/
+
+.music-animation {
+	width: 70px;
+	height: 70px;
+	background: red;
+	margin: 0px auto;
+	text-align: center;
+	line-height: 70px;
+	font-size: 12px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.play-an {
+	animation: dong 5s linear infinite;
+}
+
+
+/*.music-span{
+				-webkit-animation: zd 10s linear infinite;	
+			}
+			
+			@-webkit-keyframes zd {
+				0% {
+					-webkit-transform: rotate(0deg);
+				}
+				25% {
+					-webkit-transform: rotate(90deg);
+				}
+				50% {
+					-webkit-transform: rotate(180deg);
+				}
+				75% {
+					-webkit-transform: rotate(270deg);
+				}
+				100% {
+					-webkit-transform: rotate(360deg);
+				}
+			}*/
+
+@keyframes dong {
+	0% {
+		background: red;
+		left: 0px;
+		top: 0px;
+		width: 10px;
+		height: 30px;
+	}
+	25% {
+		background: yellow;
+		left: 500px;
+		top: 0px;
+		width: 30px;
+		height: 10px;
+	}
+	50% {
+		background: blue;
+		left: 500px;
+		top: 500px;
+		width: 10px;
+		height: 30px;
+	}
+	75% {
+		background: green;
+		left: 0px;
+		top: 500px;
+		width: 30px;
+		height: 10px;
+	}
+	100% {
+		background: red;
+		left: 0px;
+		top: 0px;
+		width: 10px;
+		height: 30px;
+	}
+}
+
+a {
+	text-align: center;
+}

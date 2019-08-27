@@ -1,0 +1,44 @@
+.myTitle{
+    padding-top:41px;
+    display:flex;
+    justify-content: space-between;
+}
+.cart{
+    flex-direction: column;
+    display: flex;
+    margin-left:19px;
+}
+.cartt{
+    color:#fff;
+    font-size:30px;
+    font-weight: 600;
+}
+.zongji{
+    margin-top:6px;
+    color:#fff;
+    font-size:15px;
+}
+.bookName{
+    color:#4A4A4A;
+    font-size:14px;
+    font-weight:600;
+    display: inline-block;
+}
+.gongsi{
+    background: #BBBBBB;
+    font-size:12px;
+    padding:2px;
+    color:#ECECEC;
+    display: inline-block;
+}
+.myCarImg{
+    width:70px;
+    height:93px;
+}
+.yichu{
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}

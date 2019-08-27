@@ -1,0 +1,277 @@
+<!-- 
+WXML 自定义顶部状态栏div结构 -->
+<view class="custom flex_center" style="background:{{color}};padding-top:{{statusBarHeight}}px;height:10%;display:flex;color:white;font-size:40rpx;">
+    <icon style="position: absolute;line-height:10%;left:4%;font-size:40rpx;margin-top:1.5%;" class="iconfont iconfanhui" bindtap="back"></icon>
+    <view style="margin:5% auto 0;text-align: center;line-height:10%;">
+      发布文章
+    </view> 
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px;"></view>
+
+<view scroll-y="true">
+    <!-- <scroll-view style="position:relative;width:100%;height:151px; white-space: nowrap;display: flex;" scroll-x="true" >
+      <view style="display: inline-block;"> 
+        <image data-index="{{index}}" src="{{fengmian}}" style="width:100%;height:151px;"></image>       
+        <view bindtap='tianjia' style="position:absolute;top:77%;left:5%;width:78px;height:17px;border-radius:8px;background:white;color:#333;text-align:center;line-height:17px;font-size:12px;">{{fenlei}} </view>
+        <view bindtap='upload2' style="position:absolute;right:5%;top:77%;width:78px;height:17px;border-radius:8px;background:white;color:#333;text-align:center;line-height:17px;font-size:12px;">更换封面 </view> 
+      </view>
+      <view style="display: inline-block;">
+         <image src="../../images/1.png"  style="width:100%;height:151px;"></image>
+      </view>                
+    </scroll-view> -->
+    <scroll-view style="position:relative;width:100%;height:151px; white-space: nowrap;display: flex;" scroll-x="true">
+      <view class="recommend_hot_box" >
+        <image data-index="{{index}}" mode='aspectFill' src="{{fengmian}}" style="width:100%;height:151px;"></image> 
+        <view bindtap="setModalStatus11" data-statu="1" style="position:absolute;top:77%;left:5%;width:78px;height:17px;border-radius:8px;background:white;color:#333;text-align:center;line-height:17px;font-size:12px;">{{fenlei}} </view>
+        <view bindtap='upload2' style="position:absolute;right:5%;top:77%;width:78px;height:17px;border-radius:8px;background:white;color:#333;text-align:center;line-height:17px;font-size:12px;">更换封面 </view>  
+      </view>
+       <view class="recommend_hot_box" style="position:relative;" >
+        <image src="{{fengmian1}}" mode='aspectFill' style="width:100%;height:151px;"></image>
+        <view bindtap='setModalStatus11'  data-statu="1" style="position:absolute;top:88%;left:5%;width:78px;height:17px;border-radius:8px;background:white;color:#333;text-align:center;line-height:17px;font-size:12px;">{{fenlei}} </view>
+        <view bindtap='upload3' style="position:absolute;right:5%;top:88%;width:78px;height:17px;border-radius:8px;background:white;color:#333;text-align:center;line-height:17px;font-size:12px;">更换封面 </view>     
+      </view>
+       <view class="recommend_hot_box" style="position:relative;" >
+        <image src="{{fengmian2}}" mode='aspectFill' style="width:100%;height:151px;"></image>
+        <view bindtap='setModalStatus11'  data-statu="1" style="position:absolute;top:88%;left:5%;width:78px;height:17px;border-radius:8px;background:white;color:#333;text-align:center;line-height:17px;font-size:12px;">{{fenlei}} </view>
+        <view bindtap='upload4' style="position:absolute;right:5%;top:88%;width:78px;height:17px;border-radius:8px;background:white;color:#333;text-align:center;line-height:17px;font-size:12px;">更换封面 </view>   
+      </view>
+  </scroll-view>
+
+    <view style="background:white;margin-top:12px;">
+        <input bindinput='title' style="font-size:14px;border:none;width:100%;height:36px;padding-left:16px;border-bottom:1px solid #F7F7F7;" placeholder='点击输入文章标题' value='{{title}}'> </input>
+         <input bindinput='author' style="font-size:14px;border:none;width:100%;height:36px;padding-left:16px;border-bottom:1px solid #F7F7F7;" placeholder='点击输入作者名称' value='{{author}}'> </input>
+          <input bindinput='photography' value='{{photography}}' style="font-size:14px;border:none;width:100%;height:36px;padding-left:16px;border-bottom:1px solid #F7F7F7;" placeholder='点击输入摄影名称'> </input>
+    </view>
+
+    <!-- <view style="margin:8px  auto 2px;width:20px;">
+        <icon bindtap='onChange' class="iconfont iconjiahao" style="font-size:20px;color:#C6C6C6;"></icon>
+    </view>
+    <view>
+        <view wx:if="{{showView}}" style="display:flex;width:35%;margin:0 auto;height:54px;line-height:54px;justify-content:space-around;background:white;">
+            <view bindtap='onChangeShowimg' style="display:flex;flex-direction:column;">
+                <icon class="iconfont icontupian" style="font-size:15px;height:12px;color:red;"></icon>
+                <text style="font-size:9px;color:#333;">图片</text>
+            </view>
+            <view bindtap='onChangeShowtext' style="display:flex;flex-direction:column;">
+                <icon class="iconfont iconwenzi" style="font-size:13px;height:12px;color:red;"></icon>
+                <text style="font-size:9px;color:#333;">文字</text>
+            </view>
+            <view style="display:flex;flex-direction:column;">
+                <icon class="iconfont iconshipin" style="font-size:15px;height:12px;color:red;"></icon>
+                <text style="font-size:9px;color:#333;">视频</text>
+            </view>
+        </view>
+    </view> -->
+
+    
+
+
+
+
+  <view data-index="place-{{index}}" wx:for="{{info.details}}" wx:key="key" class="forItemBorder">
+	  <view class="">
+         <view style="margin:8px  auto 2px;width:20px;">
+        <icon data-index="{{index}}" bindtap='onChangeShowState' class="iconfont iconjiahao" style="font-size:20px;color:#C6C6C6;"></icon>
+    </view>
+    <view>
+        <view wx:if="{{item.status}}" style="display:flex;width:35%;margin:0 auto;height:54px;line-height:54px;justify-content:space-around;background:white;">
+            <view bindtap='onChangeShowimg' data-index="{{index}}"  style="display:flex;flex-direction:column;">
+                <icon class="iconfont icontupian" style="font-size:15px;height:12px;color:red;"></icon>
+                <text style="font-size:9px;color:#333;">图片</text>
+            </view>
+            <view  bindtap='onChangeShowtext' data-index="{{index}}" style="display:flex;flex-direction:column;">
+                <icon  class="iconfont iconwenzi" style="font-size:13px;height:12px;color:red;"></icon>
+                <text style="font-size:9px;color:#333;">文字</text>
+            </view>
+            <view  data-index="{{index}}" bindtap='chooseVideo' style="display:flex;flex-direction:column;">
+                <icon  class="iconfont iconshipin" style="font-size:15px;height:12px;color:red;"></icon>
+                <text  style="font-size:9px;color:#333;">视频</text>
+            </view>           
+        </view>
+    </view>	
+	  </view>
+        <!-- 图片 -->
+        <view  wx:if="{{item.placeName == 0}}" class="jiatext" style="background:#fff;margin:2px 15px;position:relative;border-radius:5px;top:{{item.viewTop}}px;">
+            <view class="weui-media-box weui-media-box_appmsg" style="padding:9px 0px 9px 0;"> 
+              <view  data-index="{{index}}" bindtap='removeItem'  style="width:20px;text-align:center;position:relative;top:-33px;height:40px:">
+                  <icon style="font-size:9px;" class="iconfont iconcha" ></icon>
+              </view>  
+              <view bindtap='upload' data-index="{{index}}" style="border:1px dashed #333;;margin-right:13px;" class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                  <image  class="weui-media-box__thumb" src="{{item.image}}" />
+              </view>
+              <view  catchtap="setModalStatus1" cursor:pointer data-status="1" data-index="{{index}}" class="weui-media-box__bd weui-media-box__bd_in-appmsg">              
+                  <view style="font-size:14px;color:#333;height:90rpx; width:100%;overflow:hidden;word-break:break-all;text-overflow:ellipsis;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp:2;">{{item.tantext1}}</view> 
+              </view>
+              <view  style='display:flex;flex-direction:column;margin-right:2px;'>
+                  <icon class="iconfont iconup" bindtap='great'  data-index="{{index}}" style="font-size:15px;"></icon>
+                  <icon class="iconfont icondown" bindtap='downward' data-index="{{index}}" style="font-size:15px;"></icon>
+              </view>
+            </view>
+        </view>
+        <!-- //文字 -->
+        <view wx:if="{{item.number == 0}}" class="jiatext" style="background:#fff;margin:2px 15px;position:relative;border-radius:5px;top:{{item.viewTop}}px;">
+            <view class="display:flex;" style="padding:9px 0px 9px 0;"> 
+              <view  data-index="{{index}}" bindtap='removeItem' style="width:20px;text-align:center;position:relative;top:-40rpx;height:40px:">
+                  <icon style="font-size:9px;" class="iconfont iconcha" ></icon>
+              </view>  
+              <view bindtap='upload1' data-index="{{index}}" style="border:1px dashed #333;;margin-right:13px;width:100rpx;height:100rpx;" class="">
+                  <image  class="" style="width:100%;height:100%;" src="{{item.image1}}" />
+              </view>
+              <view catchtap="setModalStatus"   data-index="{{index}}" data-status="1" style="height:100rpx;width:80%;"  class="">          
+                  <view style="font-size:14px;color:#333;height:100rpx; width:100%;overflow:hidden;word-break:break-all;text-overflow:ellipsis;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp:2;">{{item.tantext}}</view>
+              </view>
+               <view  style='display:flex;flex-direction:column;margin-right:2px;'>
+                  <icon class="iconfont iconup" bindtap='great'  data-index="{{index}}" style="font-size:15px;"></icon>
+                  <icon class="iconfont icondown" bindtap='downward' data-index="{{index}}" style="font-size:15px;"></icon>
+              </view>
+            </view>
+        </view>
+        <!-- 视频 -->
+        <view wx:if="{{item.text == 0}}" class="jiatext" style="background:#fff;margin:2px 15px;position:relative;border-radius:5px;top:{{item.viewTop}}px;">
+          <view class="weui-media-box weui-media-box_appmsg" style="padding:9px 0px 9px 0;"> 
+            <view  data-index="{{index}}" bindtap='removeItem' style="width:20px;text-align:center;position:relative;top:-33px;height:40px:">
+                <icon style="font-size:9px;" class="iconfont iconcha" ></icon>
+            </view>  
+            <view bindtap='videoo' data-index="{{index}}" style="border:1px dashed #333;;margin-right:13px;" class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                <video  class="video weui-media-box__thumb" src="{{item.video}}"></video>
+            </view>
+            <view catchtap="setModalStatus2"   data-index="{{index}}" data-status="1"  class="weui-media-box__bd weui-media-box__bd_in-appmsg">              
+                <view style="font-size:14px;color:#333;height:90rpx; width:100%;overflow:hidden;word-break:break-all;text-overflow:ellipsis;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp:2;">{{item.tantext2}}</view>
+            </view>
+             <view  style='display:flex;flex-direction:column;margin-right:2px;'>
+                  <icon class="iconfont iconup" bindtap='great'  data-index="{{index}}" style="font-size:15px;"></icon>
+                  <icon class="iconfont icondown" bindtap='downward' data-index="{{index}}" style="font-size:15px;"></icon>
+              </view>
+          </view>
+        </view>
+
+              <!-- <view class="drawer_screen" bindtap="setModalStatus" data-status="0" wx:if="{{item.tanchu == 0}}"></view> -->
+              <!-- 文字弹出层 -->
+          <view style="width:100%;height:100vh;background:white;position:fixed;top:0;left:0;z-index:99999;float:left;" animation="{{animationData}}" class="drawer_attr_box" wx:if="{{item.tanchu == 0}}">
+            <view class="custom flex_center" style="background:{{color}};padding-top:{{statusBarHeight}}px;height:10%;display:flex;color:white;font-size:40rpx;">
+              <icon style="position: absolute;line-height:10%;left:4%;font-size:40rpx;margin-top:1.5%;" class="iconfont iconfanhui" bindtap="setModalStatus" data-status="1" data-index="{{index}}"></icon>
+              <view style="margin:5% auto 0;text-align: center;line-height:10%;">
+                发布文章
+              </view> 
+          </view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px;"></view>
+
+              <view style="width:95%;height:500rpx;margin:20rpx auto;border:1px solid #eee;border-radius:10rpx;">
+                <textarea bindblur='bindblur' value="{{item.tantext}}" focus='true' data-index="{{index}}" bindinput="mInput"   maxlength='5000'   style="background:white;width:100%;" bindconfirm="inputConfirm">  
+                </textarea>
+                
+            </view>
+            <view  style="margin-left:20rpx;" bindtap='shuru'>{{length}}/5000</view>
+            <view  bindtap="setModalStatus" data-status="1" data-index="{{index}}"  style="background:{{color}};text-align:center;color:#fff;font-size:30rpx;width:97%;height:70rpx;line-height:70rpx;margin:20rpx auto;border-radius:10rpx;">完成</view>
+          </view>
+          
+          <!-- 图片文字弹出层 -->
+          <view style="width:100%;height:100vh;background:white;position:fixed;top:0;left:0;z-index:99999;float:left;" animation="{{animationData}}" class="drawer_attr_box" wx:if="{{item.tanchu1 == 0}}">
+           <view class="custom flex_center" style="background:{{color}};padding-top:{{statusBarHeight}}px;height:10%;display:flex;color:white;font-size:40rpx;">
+              <icon style="position: absolute;line-height:10%;left:4%;font-size:40rpx;margin-top:1.5%;" class="iconfont iconfanhui" bindtap="setModalStatus1" data-status="1" data-index="{{index}}"></icon>
+              <view style="margin:5% auto 0;text-align: center;line-height:10%;">
+                发布文章
+              </view> 
+          </view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px;"></view>
+
+              <view style="width:95%;height:500rpx;margin:20rpx auto;border:1px solid #eee;border-radius:10rpx;">
+                <textarea bindblur='bindblur' value="{{item.tantext1}}" focus='true' data-index="{{index}}" bindinput="mInput1"   maxlength='5000'   style="background:white;width:100%;" bindconfirm="inputConfirm">  
+                </textarea>
+               
+            </view>
+             <view  style="margin-left:20rpx;" bindtap='shuru'>{{length1}}/5000</view>
+            <view  bindtap="setModalStatus1"  data-index="{{index}}"  style="background:{{color}};text-align:center;color:#fff;font-size:30rpx;width:97%;height:70rpx;line-height:70rpx;margin:20rpx auto;border-radius:10rpx;">完成</view>
+          </view>
+
+                  <!-- 视频文字弹出层 -->
+          <view style="width:100%;height:100vh;background:white;position:fixed;top:0;left:0;z-index:99999;float:left;" animation="{{animationData}}" class="drawer_attr_box" wx:if="{{item.tanchu2 == 0}}">
+            <view class="custom flex_center" style="background:{{color}};padding-top:{{statusBarHeight}}px;height:10%;display:flex;color:white;font-size:40rpx;">
+              <icon style="position: absolute;line-height:10%;left:4%;font-size:40rpx;margin-top:1.5%;" class="iconfont iconfanhui" bindtap="setModalStatus" data-status="1" data-index="{{index}}"></icon>
+              <view style="margin:5% auto 0;text-align: center;line-height:10%;">
+                发布文章
+              </view> 
+          </view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px;"></view>
+
+              <view style="width:95%;height:500rpx;margin:20rpx auto;border:1px solid #eee;border-radius:10rpx;">
+                <textarea bindblur='bindblur' value="{{item.tantext2}}" focus='true' data-index="{{index}}" bindinput="mInput2"   maxlength='5000'   style="background:white;width:100%;">  
+                </textarea>
+                
+            </view>
+            <view style="margin-left:20rpx;"  bindtap='shuru'>{{length2}}/5000</view>
+            <view  bindtap="setModalStatus2" style="background:{{color}};text-align:center;color:#fff;font-size:30rpx;width:97%;height:70rpx;line-height:70rpx;margin:20rpx auto;border-radius:10rpx;"  data-index="{{index}}">完成</view>
+          </view>
+
+
+  </view>
+
+<!-- <view data-index="{{index}}" bindtap='addItem' >增加</view>
+<view data-index="{{index}}" bindtap='removeItem' >删除</view> -->
+
+		
+	
+<view style="height:100px;"></view>
+
+
+   <view class="drawer_screen" bindtap="setModalStatus11" data-status="0" wx:if="{{showModalStatus11}}"></view>
+          <view animation="{{animationData}}" class="drawer_attr_box" wx:if="{{showModalStatus11}}">
+            <view class="custom flex_center" style="background:{{color}};padding-top:{{statusBarHeight}}px;height:10%;display:flex;color:white;font-size:40rpx;">
+              <icon style="position: absolute;line-height:10%;left:4%;font-size:40rpx;margin-top:1.5%;" class="iconfont iconfanhui" bindtap="setModalStatus11"></icon>
+              <view style="margin:5% auto 0;text-align: center;line-height:10%;">
+                选择分类
+              </view> 
+          </view>
+          <view class="empty_custom" style="padding-top:{{statusBarHeight}}px;"></view>
+          <!-- <view class="close_icon" bindtap="setModalStatus11" data-status="0">×</view> -->
+            <view class="drawer_attr_content">              
+              <view style="background:white;">
+                <view class="neiirong" >  
+                <!-- <view class="mypindao" >我的频道</view> -->
+                 <view style="color:{{curIndex == index ? color : ''}}"  class="country_one {{curIndex === index ?'on':''}}" data-current="{{index}}" data-status="{{item.id}}" data-name="{{item.name}}" bindtap="bindTap11" data-statu="0"  wx:key="index" data-index="{{index}}" wx:for="{{cat_list1}}">{{item.name}} </view>               
+            </view>
+          </view> 
+            </view>
+          </view>
+
+
+
+
+<!-- 
+    <view wx:if="{{text}}" class="jiatext" style="background:#fff;margin:2px 15px;position:relative;border-radius:5px;">
+        <view class="weui-media-box weui-media-box_appmsg" style="padding:9px 29px 9px 0;"> 
+          <view  bindtap='closeText' style="width:20px;text-align:center;position:relative;top:-33px;height:40px:">
+              <icon style="font-size:9px;" class="iconfont iconcha" ></icon>
+          </view>  
+          <view bindtap='upload1' style="border:1px dashed #333;;margin-right:13px;" class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+              <image  class="weui-media-box__thumb" src="{{uploaderList1}}" />
+          </view>
+          <view bindtap='' class="weui-media-box__bd weui-media-box__bd_in-appmsg">              
+              <view style="font-size:14px;color:#333;" class="weui-media-box__desc">{{wenzi}}</view>
+          </view>
+        </view>
+    </view>
+
+        <view wx:if="{{img}}" class="jiatext" style="background:#fff;margin:2px 15px;position:relative;border-radius:5px;">
+        <view class="weui-media-box weui-media-box_appmsg" style="padding:9px 29px 9px 0;"> 
+          <view  bindtap='closeImg' style="width:20px;text-align:center;position:relative;top:-33px;height:40px:">
+              <icon style="font-size:9px;" class="iconfont iconcha" ></icon>
+          </view>  
+          <view bindtap='upload1' style="border:1px dashed #333;;margin-right:13px;" class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+              <image  class="weui-media-box__thumb" src="../../images/1.png" />
+          </view>
+          <view bindtap='' class="weui-media-box__bd weui-media-box__bd_in-appmsg">              
+              <view style="font-size:14px;color:#333;" class="weui-media-box__desc">{{wenzi}}</view>
+          </view>
+        </view>
+    </view>  -->
+
+
+
+
+
+
+
+    <view bindtap='sunccess' class="wancheng" style="background:{{color}}">完成</view>
+</view> 
+

@@ -1,0 +1,520 @@
+.mui-content {
+	background-color: #fff;
+	overflow-y: scroll;
+}
+
+.mui-bar .mui-icon,
+.mui-title {
+	color: #036342;
+}
+
+.mui-bar {
+	background-color: #fff;
+	border-bottom: 2px solid #f0f1f2;
+}
+
+#Edit {
+	font-size: 15px;
+	padding-top: 15px;
+	color: #E02D26;
+}
+
+.mui-icon-checkmarkempty {
+	font-size: 23px;
+	color: white;
+	border-radius: 50%;
+	border: 1px solid #8f8f94;
+}
+
+.mui-icon-checkmarkempty:hover {
+	color: white;
+}
+
+.footer {
+	border-top: 1px solid #E0E0E0;
+	width: 100%;
+	height: 60px;
+	margin: 0 auto;
+	background: white;
+	position: fixed;
+	bottom: 0px;
+	z-index: 2;
+}
+
+.footer-left {
+	width: 30%;
+	float: left;
+	height: 60px;
+	line-height: 60px;
+	text-align: left;
+	padding-left: 10px;
+	padding-right: 30px;
+}
+
+.footer-center {
+	width: 40%;
+	float: left;
+	height: 60px;
+	text-align: left;
+	margin-left: 10px;
+}
+
+.footer-center-top {
+	padding-right: 10px;
+	margin-top: 20px;
+}
+
+.footer-center-top-left {
+	font-size: 16px;
+	color: #999;
+}
+
+.footer-center-top-left:hover {
+	color: #E02D26;
+}
+
+.footer-center-top-right {
+	font-size: 16px;
+	color: #ab2b2c;
+}
+
+.footer-center-top-right:hover {
+	color: #E02D26;
+}
+
+.footer-center-bottom {
+	padding-right: 10px;
+	font-size: 13px;
+}
+
+.footer-right {
+	width: 50%;
+	font-size: 16px;
+	float: right;
+	height: 60px;
+	text-align: center;
+	line-height: 60px;
+	color: white;
+	background: url(../images/an.png) center no-repeat;
+	background-size: 90%;
+}
+
+.count {
+	color: white;
+}
+
+.count:hover {
+	color: white;
+}
+
+.footer-left1 {
+	width: 20px;
+	height: 20px;
+}
+
+.footer-left2 {
+	font-size: 13px;
+	color: black;
+}
+
+.footer-left2:hover {
+	color: black;
+}
+
+.mui-table-view {
+	background: none;
+}
+
+.ShopAll {
+	/*margin-top: 10px;*/
+	/*margin-bottom: 5px;*/
+}
+
+.mui-content>.mui-table-view:first-child {
+	margin-top: 0px;
+}
+
+.mui-table-view:before {
+	height: 0px;
+}
+
+.mui-table-view:after {
+	height: 0px;
+}
+
+.mui-table-view-cell {
+	padding: 0px;
+	border-bottom: 1px dashed #ccc;
+	padding-bottom: 2%;
+}
+
+.mui-table-view-cell.mui-active {
+	background: none;
+}
+
+.mui-table-view-cell:after {
+	height: 0px;
+}
+
+.BoxItemTop {
+	height: 50px;
+	line-height: 50px;
+	border-bottom: 1px solid #e7e4e4;
+}
+
+.chk {
+	width: 23px;
+	height: 23px;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 15px;
+}
+
+.BoxItemTopShopName {
+	font-size: 14px;
+	color: black;
+}
+
+.BoxItemTopShopName:hover {
+	color: black;
+}
+
+.BoxItemTopRightIcon {
+	font-size: 14px;
+	color: black;
+}
+
+.BoxItemTopRightIcon:hover {
+	color: black;
+}
+
+.mui-table-view-cell>.mui-slider-left>.mui-btn,
+.mui-table-view-cell>.mui-slider-right>.mui-btn.btn_del {
+	background: #E02D26;
+	color: white;
+}
+
+.mui-table-view-cell>.mui-slider-left>.mui-btn,
+.mui-table-view-cell>.mui-slider-right>.mui-btn.btn_Shoucang {
+	background: #EEEFEE;
+	color: #000000;
+}
+
+.BoxItemBottom {
+	background: white;
+	overflow: hidden;
+}
+
+.BoxItemBottomLeft {
+	width: 10%;
+	float: left;
+}
+
+.chks {
+	width: 22px;
+	height: 22px;
+	margin-left: 10px;
+	margin-top: 40px;
+}
+
+.BoxItemBottomRight {
+	float: left;
+	width: 90%;
+}
+
+.BoxItemBottomRightImg {
+	margin-top: 10px;
+	float: left;
+	width: 25%;
+	height: 5.2rem;
+	border: 1px solid #ccc;
+	padding: 1%;
+	box-sizing: border-box;
+}
+
+.BoxItemBottomRightImg img {
+	width: 100%;
+	height: 100%;
+	padding: 3%;
+}
+
+.BoxItemBottomRightDetails {
+	float: left;
+	width: 72%;
+}
+
+.BoxItemBottomRightDetailsName {
+	font-size: 12px;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+.BoxItemBottomRightDetailsName p {
+	width: 70%;
+	float: left;
+	color: #333;
+}
+
+.delete {
+	color: #999;
+	display: inline-block;
+	height: 1.5rem;
+	line-height: 1.5rem;
+	padding: 0 5px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	text-align: center;
+	font-size: 13px;
+	margin-top: 8px;
+}
+
+.BoxItemBottomNum {
+	height: 40px;
+	margin-left: 10px;
+}
+
+.BoxItemBottomRightDetailsGuigeDown {
+	font-size: 15px;
+	color: black;
+	margin-top: 4px;
+}
+
+.BoxItemBottomRightDetailsGuigeDown:hover {
+	color: black;
+}
+
+.BoxItemBottomRightDetailsPrice {
+	display: inline-block;
+}
+
+.BoxItemBottomRightDetailsMoney {
+	font-size: 14px;
+	color: #E02D26;
+	line-height: 40px;
+	text-align: right;
+	width: 30%;
+	display: inline-block;
+	float: right;
+}
+
+.BoxItemBottomRightDetailsMoney:hover {
+	color: #E02D26;
+}
+
+.btn_add {
+	font-size: 20px;
+	color: #959595;
+	border: 1px solid #959595;
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	text-align: center;
+	border-radius: 3px;
+	margin-top: 7.5px;
+	line-height: 20px;
+	margin-right: 10px;
+	margin-left: 1px;
+	font-size: 14px;
+}
+
+.btn_add:hover {
+	color: #959595;
+}
+
+input[type=number] {
+	color: #959595;
+	border: 1px solid #959595;
+	width: 30px;
+	padding: 0px 0px;
+	text-align: center;
+	height: 25px;
+	border-radius: 3px;
+	font-size: 12px;
+	margin-top: 7.5px;
+	margin-left: 1px;
+}
+
+.btn_jian {
+	font-size: 20px;
+	color: #959595;
+	border: 1px solid #959595;
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	text-align: center;
+	border-radius: 3px;
+	margin-top: 7.5px;
+	margin-left: 1px
+}
+
+.btn_jian:hover {
+	color: #959595;
+}
+
+.selectAll {
+	font-size: 22px;
+	color: white;
+	background: #E02D26;
+	border-radius: 50%;
+	border: 0px;
+}
+
+.selectPrice {
+	font-size: 23px;
+	width: 23px;
+	height: 23px;
+	color: white;
+	background: #036342;
+	border-radius: 50%;
+	border: 1px solid white;
+}
+
+#sheet3 {
+	background: white;
+}
+
+.goPingdanImg {
+	width: 100px;
+	height: 100px;
+	float: left;
+	margin-left: 10px;
+	border-radius: 5px;
+	margin-top: -30px;
+	border: 1px solid white;
+}
+
+.goPingdanDiv {
+	min-height: 70px;
+	float: left;
+	font-size: 13px;
+	margin-left: 10px;
+	margin-top: 10px;
+}
+
+.goPingdanMoney {
+	color: #E02D26;
+	font-size: 15px;
+}
+
+.goPingdanSelectKuanshi {
+	height: auto;
+}
+
+.goPingdanKuanshi {
+	border-top: 1px solid #f5f5f5;
+	width: 100%;
+	float: left;
+	background: white;
+}
+
+.goPingdanKuanshiItem {
+	float: left;
+	background: #f5f5f5;
+	color: black;
+	font-size: 11px;
+	padding: 3px;
+	margin: 5px 5px 0px 10px;
+	border-radius: 5px;
+}
+
+.goPingdanKuanshiItem-Active {
+	float: left;
+	background: #E02D26;
+	color: white;
+	font-size: 12px;
+	padding: 3px;
+	margin: 5px 5px 0px 10px;
+	border-radius: 5px;
+}
+
+.goPingdanNumDiv {
+	border-top: 1px solid #f5f5f5;
+	border-bottom: 1px solid #f5f5f5;
+	width: 100%;
+	float: left;
+	background: white;
+	height: 50px;
+	line-height: 50px;
+}
+
+.goPingdanNumFont {
+	font-size: 13px;
+	margin-left: 10px;
+	float: left;
+}
+
+.goPingdanNumFontOperation {
+	float: right;
+	margin-right: 10px;
+}
+
+.goPingdanNumDel {
+	float: left;
+	font-size: 13px;
+	width: 30px;
+	height: 20px;
+	text-align: center;
+	background: #f2f2f2;
+	line-height: 20px;
+	margin-top: 15px;
+}
+
+.goPingdanNumContent {
+	float: left;
+	font-size: 13px;
+	width: 50px;
+	height: 20px;
+	text-align: center;
+	background: #f2f2f2;
+	line-height: 20px;
+	margin-top: 15px;
+}
+
+.goPingdanNumAdd {
+	float: left;
+	font-size: 13px;
+	width: 30px;
+	height: 20px;
+	text-align: center;
+	background: #e0e0e0;
+	margin-top: 15px;
+	line-height: 20px;
+}
+
+.goPingdanBtnDiv {
+	height: 100px;
+	background: white;
+	float: left;
+	background: white;
+	width: 100%;
+	text-align: center;
+}
+
+.goPingdanBtn {
+	width: 95%;
+	font-size: 15px;
+	background: #E02D26;
+	color: white;
+	margin: 0px auto;
+	height: 40px;
+	line-height: 40px;
+	margin-top: 30px;
+	border-radius: 5px;
+}
+
+.kucun {
+	height: 40px;
+	line-height: 40px;
+	color: #cb071f;
+	font-size: 12px;
+}
+
+.shoppingCart-empty {
+	text-align: center;
+}
+
+.shoppingCart-empty p {
+	font-size: 14px;
+	height: 2.5rem;
+	line-height: 2.5rem;
+}

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>购物车</title>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/shoppingCart.css" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-icon mui-icon-left-nav mui-pull-left" onclick="mui.back()"></a>
+			<h1 class="mui-title">购物车</h1>
+		</header>
+		<div class="mui-content mui-scroll-wrapper">
+			<div class="shoppingCart-empty mui-hidden">
+				<img src="images/gouwuche.png" style="width: 30%;margin-top: 28%;" />
+				<p>购物车空空如也，赶快去逛逛吧！</p>
+				<img src="images/gouwuche-btn.png" style="width: 50%;margin-top: 5%;" id="guangguang" />
+			</div>
+			<ul class="mui-table-view cart-list">
+				<div class="BoxItemTop ShopAll" data-index="1">
+					<a class="chk mui-icon mui-icon-checkmarkempty"></a>
+					<a class="BoxItemTopShopName">全选</a>
+				</div>
+				<li class="mui-table-view-cell mui-media BoxItem" data-index="1">
+					<div class='mui-slider-handle'>
+						<div class="BoxItemBottom">
+							<div class="BoxItemBottomLeft">
+								<a class="chks mui-icon mui-icon-checkmarkempty"></a>
+							</div>
+							<div class="BoxItemBottomRight">
+								<img class="BoxItemBottomRightImg" src="images/banner.png" />
+								<div class="BoxItemBottomRightDetails">
+									<div class="BoxItemBottomRightDetailsName mui-clearfix">
+										<p class="mui-ellipsis-2">闽绿新茶【送紫砂茶具带茶盘27件套 】龙井铁观音一斤多规格可选龙井铁观音一斤多规格可选龙井铁观音一斤多规格可选</p>
+										<a class="BoxItemBottomRightDetailsMoney">¥600.00</a>
+									</div>
+									<div class="BoxItemBottomNum mui-clearfix">
+										<div class="BoxItemBottomRightDetailsPrice mui-pull-left">
+											<a class="mui-pull-right btn_add">+</a>
+											<input class="mui-pull-right txt_Num" type="number" value="1">
+											<a class="mui-pull-right btn_jian">-</a>
+										</div>
+										<div class="delete mui-pull-right">
+											删除
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="mui-table-view-cell mui-media BoxItem" data-index="1">
+					<div class='mui-slider-handle'>
+						<div class="BoxItemBottom">
+							<div class="BoxItemBottomLeft">
+								<a class="chks mui-icon mui-icon-checkmarkempty"></a>
+							</div>
+							<div class="BoxItemBottomRight">
+								<img class="BoxItemBottomRightImg" src="images/banner.png" />
+								<div class="BoxItemBottomRightDetails">
+									<div class="BoxItemBottomRightDetailsName mui-clearfix">
+										<p class="mui-ellipsis-2">闽绿新茶 </p>
+										<a class="BoxItemBottomRightDetailsMoney">¥600.00</a>
+									</div>
+									<div class="BoxItemBottomNum mui-clearfix">
+										<div class="BoxItemBottomRightDetailsPrice mui-pull-left">
+											<a class="mui-pull-right btn_add">+</a>
+											<input class="mui-pull-right txt_Num" type="number" value="1">
+											<a class="mui-pull-right btn_jian">-</a>
+										</div>
+										<div class="kucun mui-pull-left">
+											库存量：25
+										</div>
+										<div class="delete mui-pull-right">
+											删除
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+
+			</ul>
+			<div style="height: 70px;"></div>
+		</div>
+		<div class="footer">
+			<div class="footer-center">
+				<div class="footer-center-top">
+					<a class="footer-center-top-left">总计:</a>
+					<a class="footer-center-top-right">¥0</a>
+				</div>
+			</div>
+			<div id="gotoCalc" class="footer-right">结算
+				<a class="count">（0）</a>件
+			</div>
+		</div>
+
+		<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="js/mui.min.js"></script>
+		<script>
+			mui.init();
+			//删除购物车商品 
+			mui('.BoxItemBottomNum').on('tap', '.delete', function() {
+//				var cart_id = this.getAttribute("data-cartid");
+//				console.log(cart_id);
+//				deleteCart(cart_id);
+			})
+
+			//购买数量加1
+			mui(".BoxItemBottomRightDetailsPrice").on("tap", ".btn_jian", function() {
+//				var cart_id = this.getAttribute("data-cartid");
+				if($(this).prev()[0].value == 1) {
+					mui.toast("不能再减少啦~");
+					return;
+				} else {
+					$(this).prev()[0].value = parseInt($(this).prev()[0].value) - 1;
+				}
+//				var num = parseInt($(this).prev()[0].value);
+//				updateCart(cart_id, num);
+				CalcMoney();
+			})
+			//购买数量减1
+			mui(".BoxItemBottomRightDetailsPrice").on("tap", ".btn_add", function() {
+//				var cart_id = this.getAttribute("data-cartid");
+				$(this).next()[0].value = parseInt($(this).next()[0].value) + 1;
+//				var num = parseInt($(this).next()[0].value);
+//				updateCart(cart_id, num);
+				CalcMoney();
+			})
+
+			//选择/取消某个店铺所有商品
+			mui(".BoxItemTop").on("tap", ".chk", function() {
+				var index = $(this).parents().attr("data-index");
+				if($(this)[0].classList.contains("selectPrice")) {
+					$(this).removeClass("selectPrice");
+					selectShop(false, index);
+				} else {
+					$(this).addClass("selectPrice");
+					selectShop(true, index);
+				}
+				CalcMoney();
+			})
+			//选中/取消商品
+			mui(".BoxItemBottom").on("tap", ".chks", function() {
+				var index = $($(this).parents("li")[0]).attr("data-index");
+				if($(this)[0].classList.contains("selectPrice")) {
+					$(this).removeClass("selectPrice");
+					//取消选择商品的时候取消全选
+					mui(".ShopAll").each(function() {
+						if($(this).attr("data-index") == index) {
+							$($(this)[0].children[0]).removeClass("selectPrice");
+						}
+					})
+					$(".footer-left1").removeClass("selectAll");
+				} else {
+					$(this).addClass("selectPrice");
+					if(isShopAll(index)) {
+						mui(".ShopAll").each(function() {
+							if($(this).attr("data-index") == index) {
+								$($(this)[0].children[0]).addClass("selectPrice");
+							}
+						})
+					}
+					if(isAll()) {
+						$(".footer-left1").addClass("selectAll");
+					}
+				}
+				CalcMoney();
+			})
+
+			//购物车删除
+			function deleteCart(cart_id) {
+				mui.ajax('', {
+					data: {
+					},
+					dataType: 'json', //服务器返回json格式数据
+					type: 'post', //HTTP请求类型
+					timeout: 10000, //超时时间设置为10秒；
+					success: function(data) {
+						
+					},
+					error: function(xhr, type, errorThrown) {
+						mui.toast(type);
+						console.log(type);
+					}
+				});
+			}
+			//购物车商品数量修改
+			function updateCart(cart_id, num) {
+				mui.ajax('', {
+					data: {
+						cartid: cart_id,
+						num: num
+					},
+					dataType: 'json', //服务器返回json格式数据
+					type: 'post', //HTTP请求类型
+					timeout: 10000, //超时时间设置为10秒；
+					success: function(data) {
+						//						console.log(JSON.stringify(data));
+						if(data.code == 1) {
+							//							mui.toast("修改成功！");
+							/*getCount();
+							setTimeout(function(){
+								$(".cart-footer .red").html($("#total_money").val());
+								$(".cart-footer .total i").html($("#total_num").val());
+							},300);*/
+							return false;
+						} else {
+							//							mui.toast("修改失败！");
+							return false;
+						}
+					},
+					error: function(xhr, type, errorThrown) {
+						mui.toast(type);
+						console.log(type);
+					}
+				});
+			}
+
+			//判断是否全选
+			function isAll() {
+				var result = true;
+				mui(".chk").each(function() {
+					if(!$(this)[0].classList.contains("selectPrice")) {
+						result = false;
+						return result;
+					}
+				})
+				mui(".chks").each(function() {
+					if(!$(this)[0].classList.contains("selectPrice")) {
+						result = false;
+						return result;
+					}
+				})
+				return result;
+			}
+			//判断商铺里面所有商品是否选中
+			function isShopAll(index) {
+				var result = true;
+				mui("li").each(function(i, e) {
+					if($(this).attr("data-index") == index) {
+						if(!$(this)[0].children[0].children[0].children[0].children[0].classList.contains("selectPrice")) {
+							result = false;
+							return result;
+						}
+					}
+				})
+				return result;
+			}
+			//选中/取消
+			function selectShop(isSelect, index) {
+				mui("li").each(function(i, e) {
+					//					debugger;
+					if($(this).attr("data-index") == index) {
+						if(isSelect) {
+							//							console.log(this);
+							if(!$(this)[0].children[0].children[0].children[0].children[0].classList.contains("selectPrice")) {
+								$($(this)[0].children[0].children[0].children[0].children[0]).addClass("selectPrice");
+							}
+							//如果所有复选框全部选中则选中全选
+							if(isAll()) {
+								$(".footer-left1").addClass("selectAll");
+							}
+						} else {
+							if($(this)[0].children[0].children[0].children[0].children[0].classList.contains("selectPrice")) {
+								$($(this)[0].children[0].children[0].children[0].children[0]).removeClass("selectPrice");
+							}
+							//无论什么只要取消选择则 取消全选
+							$(".footer-left1").removeClass("selectAll");
+						}
+					}
+				})
+				CalcMoney();
+			}
+			//计算总价及总个数
+			function CalcMoney() {
+				var count = 0;
+				var money = 0;
+				mui(".chks").each(function() {
+					if($(this)[0].classList.contains("selectPrice")) {
+						var price = $(this).parents().next()[0].children[1].children[0].children[1].innerHTML.split("¥")[1];
+
+						var num = $(this).parents().next()[0].children[1].children[1].children[0].children[1].value;
+						money += parseFloat(price) * num;
+						count = count + parseInt(num);
+					}
+					//去结算个数
+					$(".count").html("（" + count + "）");
+					//合计
+					$(".footer-center-top-right").html("¥" + money);
+				})
+			}
+		</script>
+	</body>
+
+</html>

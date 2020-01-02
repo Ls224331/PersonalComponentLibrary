@@ -1,0 +1,14 @@
+<!--pages/test/test.wxml-->
+<text>pages/test/test.wxml</text>
+<view class="icon-download" catchtap="getCanvas">点击生成图片</view>
+<!-- 二维码大图 -->
+<view class='shade' wx:if="{{isShowCanvas}}">
+  <view class='qr-code'>
+    <canvas class='qr-canvas' canvas-id="qrCanvas" id="qrCanvas"></canvas>
+    <view class='qr-btn'>
+      <view class='qr-btn-save' catchtap='saveImageToPhotosAlbumFunc'>保存图片,分享到朋友圈</view>
+      <view class='qr-btn-cancel' catchtap='hideCanvas'>取消</view>
+    </view>
+  </view>
+</view>
+<!-- 二维码大图.end -->
